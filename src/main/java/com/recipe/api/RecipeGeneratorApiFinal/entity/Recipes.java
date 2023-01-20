@@ -10,11 +10,14 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name="proteinSource")
-public class ProteinSource {
+@Entity(name="Recipes")
+@Table(name="Recipes")
+public class Recipes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String proteinSource;
+    private String Protein;
+    private String Name;
+    private String Picture;
+    private String URL;
 }
