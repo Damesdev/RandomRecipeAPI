@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/")
 public class recipesAPI {
-//    GET MAPPING
+
+    //    GET MAPPING------------------------------------------------------
+
 //    Get All Recipes
     @GetMapping("recipes")
     private String allRecipes(){
@@ -31,4 +33,6 @@ public class recipesAPI {
     private String allSeafood() {
         return "seafood";
     }
+
+    //    DELETE MAPPING------------------------------------------------------
 }
