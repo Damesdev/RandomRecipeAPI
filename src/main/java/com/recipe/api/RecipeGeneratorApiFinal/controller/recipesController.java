@@ -1,4 +1,4 @@
-package com.recipe.api.RecipeGeneratorApiFinal.Routers;
+package com.recipe.api.RecipeGeneratorApiFinal.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/")
-public class recipesAPI {
+public class recipesController {
 
     //    GET MAPPING------------------------------------------------------
 
