@@ -20,23 +20,20 @@ public class recipesController {
 
 //    Get All Recipes
     @GetMapping("recipes")
-    public List<Recipes> getAllRecipesRepository() {
+    public List<Recipes> getAllRecipes() {
         return recipesRepository.searchProtein("%");
     }
 
 //    Get All Chicken Recipes
     @GetMapping("chicken")
-//    private String allChicken(){
-//        return "chicken";
-//    }
-    public List<Recipes> getRecipesRepository() {
+    public List<Recipes> getChicken() {
         return recipesRepository.searchProtein("Chicken");
     }
 
 //    Get All Seafood Recipes
     @GetMapping("seafood")
-    private String allSeafood() {
-        return "seafood";
+    public List<Recipes> getSeafood() {
+        return recipesRepository.searchProtein("Seafood");
     }
 
     //    DELETE MAPPING------------------------------------------------------
