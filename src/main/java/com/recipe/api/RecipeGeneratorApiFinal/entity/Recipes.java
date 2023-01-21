@@ -20,4 +20,6 @@ public class Recipes {
     private String Name;
     private String Picture;
     private String URL;
+
+
 }

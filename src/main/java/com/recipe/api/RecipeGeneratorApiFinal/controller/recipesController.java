@@ -3,14 +3,16 @@ package com.recipe.api.RecipeGeneratorApiFinal.controller;
 import com.recipe.api.RecipeGeneratorApiFinal.entity.Recipes;
 import com.recipe.api.RecipeGeneratorApiFinal.repository.RecipesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import javax.print.attribute.standard.Media;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/recipes")
 public class recipesController {
 
     @Autowired
@@ -19,22 +21,24 @@ public class recipesController {
     //    GET MAPPING------------------------------------------------------
 
 //    Get All Recipes
-    @GetMapping("recipes")
+    @GetMapping("/")
     public List<Recipes> getAllRecipes() {
         return recipesRepository.searchProtein("%");
     }
 
-//    Get All Chicken Recipes
-    @GetMapping("chicken")
-    public List<Recipes> getChicken() {
-        return recipesRepository.searchProtein("Chicken");
+//    Query by GET REQUEST PARAM PROTEIN
+    @GetMapping("/protein")
+    @ResponseBody
+    public List<Recipes> getProtein(@RequestParam String protein) {
+        return recipesRepository.searchProtein(protein);
     }
 
-//    Get All Seafood Recipes
-    @GetMapping("seafood")
-    public List<Recipes> getSeafood() {
-        return recipesRepository.searchProtein("Seafood");
-    }
+    //    POST MAPPING------------------------------------------------------
 
-    //    DELETE MAPPING------------------------------------------------------
+//    Post method with PostMapping removing @RequestBody completes the transaction and allows item to be created.
+
+    @PostMapping(path = "/")
+    public Recipes addNewRecipe2(@RequestBody Recipes recipeDetails){
+        return recipesRepository.save(recipeDetails);
+    }
 }
