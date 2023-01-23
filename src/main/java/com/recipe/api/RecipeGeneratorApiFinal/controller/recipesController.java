@@ -22,9 +22,11 @@ public class recipesController {
 
     //    Get All Recipes
     @GetMapping("/")
-    public List<Recipes> getAllRecipes() {
-        return recipesRepository.findAll();
-    }
+    public List<Recipes> getAllRecipes() {return recipesRepository.findAll();}
+
+
+    @GetMapping("/protein/unique")
+    public List uniqueProtein() {return recipesRepository.uniqueProteinsList();}
 
     //    Query by GET REQUEST PARAM PROTEIN
     @GetMapping(value = "/{protein}")
