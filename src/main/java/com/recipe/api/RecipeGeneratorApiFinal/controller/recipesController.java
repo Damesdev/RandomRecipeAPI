@@ -27,9 +27,9 @@ public class recipesController {
     }
 
 //    Query by GET REQUEST PARAM PROTEIN
-    @GetMapping("/protein")
+    @GetMapping(value = "/{protein}")
     @ResponseBody
-    public List<Recipes> getProtein(@RequestParam String protein) {
+    public List<Recipes> getProtein(@PathVariable String protein) {
         return recipesRepository.searchProtein(protein);
     }
 
@@ -37,8 +37,16 @@ public class recipesController {
 
 //    Post method with PostMapping removing @RequestBody completes the transaction and allows item to be created.
 
-    @PostMapping(path = "/")
-    public Recipes addNewRecipe2(@RequestBody Recipes recipeDetails){
-        return recipesRepository.save(recipeDetails);
+    @PostMapping(value = "/")
+    public List<Recipes> addNewRecipe(@RequestBody Recipes recipeDetails){
+        recipesRepository.save(recipeDetails);
+        return recipesRepository.findAll();
+    }
+
+//    DELETE MAPPING
+    @DeleteMapping(value="/{recipeID}")
+    public List<Recipes> deleteRecipe(@PathVariable Long recipeID) {
+        recipesRepository.deleteById(recipeID);
+        return recipesRepository.findAll();
     }
 }
