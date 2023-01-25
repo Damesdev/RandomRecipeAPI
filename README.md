@@ -15,6 +15,8 @@ https://dev.mysql.com/downloads/mysql/
 
 Configure download settings to the device you are on.
 
+Add datasource username and password to application.properties file
+
 Mac support: https://www.youtube.com/watch?v=-BDbOOY9jsc
 
 Windows support: https://www.youtube.com/watch?v=OM4aZJW_Ojs&t=0s
